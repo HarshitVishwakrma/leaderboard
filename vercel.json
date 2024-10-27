@@ -10,9 +10,10 @@
       {
         "src": "/(.*)",
         "dest": "src/index.js",
-        "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+        "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "https://userdashboard-theta.vercel.app" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" }
+      ]
       }
     ]
 }
