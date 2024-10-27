@@ -13,7 +13,7 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: "*", // Replace with the frontend's URL (React app)
+    origin: "https://userdashboard-theta.vercel.app/", // Replace with the frontend's URL (React app)
     methods: "GET,POST,PUT,DELETE,PATCH", // Allowed methods
   })
 );
