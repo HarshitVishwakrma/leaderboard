@@ -9,14 +9,16 @@ import user from "./routes/user.routes.js";
 import cookieParser from "cookie-parser";
 const app = express();
 // Use cors middleware
-app.use(cors());
+
 
 app.use(
   cors({
-    origin: "https://userdashboard-theta.vercel.app/", // Replace with the frontend's URL (React app)
-    methods: "GET,POST,PUT,DELETE,PATCH", // Allowed methods
+    origin: "https://userdashboard-theta.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    credentials: true, // If you use cookies
   })
 );
+
 
 //middle wares
 app.use(express.json());
@@ -49,7 +51,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(7000, async () => {
-  console.log("Server is running on port 7000");
+const PORT = process.env.PORT || 7000;
+app.listen(PORT, async () => {
+  console.log(`Server is running on port ${PORT}`);
   await connectDb();
 });
