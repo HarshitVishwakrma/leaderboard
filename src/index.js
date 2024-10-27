@@ -4,6 +4,7 @@ import cors from "cors"
 // *********** All-Routes *************
 import auth from "./routes/auth.routes.js";
 import user from "./routes/user.routes.js";
+import mongoose from 'mongoose'
 // *********** All-Routes *************
 
 import cookieParser from "cookie-parser";
@@ -53,7 +54,12 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 7000;
-app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
-  await connectDb();
-});
+
+
+mongoose.connect(process.env.MONGO_URI).then( r =>{
+  app.listen(PORT, async () => {
+    // await connectDb();
+    console.log(`Server is running on port ${PORT}`);
+  });
+})
+
