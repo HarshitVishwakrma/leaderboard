@@ -64,7 +64,7 @@ export const Login = async (req, res) => {
       expiresIn: "1d",
     });
 
-    return res.status(200).send({
+    return res.status(200).json({
       success: true,
       message: "User logged in successfully",
       data: user,
