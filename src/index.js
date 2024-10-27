@@ -13,11 +13,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://userdashboard-theta.vercel.app",
+    origin: "https://userdashboard-theta.vercel.app", // Explicit origin
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    credentials: true, // If you use cookies
+    credentials: true, // Allow credentials (cookies)
   })
 );
+
 
 
 //middle wares
